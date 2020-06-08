@@ -1,0 +1,7 @@
+{
+{"patient_id":"p000000001","diagnosis_id":"d1"},
+{"patient_id":"p000000002","diagnosis_id":"d2"},
+{"patient_id":"p000000003","diagnosis_id":"d3"},
+{"patient_id":"p000000004","diagnosis_id":"d4"},
+{"patient_id":"p000000004","diagnosis_id":"d1"}
+}
