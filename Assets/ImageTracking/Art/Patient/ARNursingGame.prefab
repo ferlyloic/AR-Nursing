@@ -48,5 +48,5 @@ MonoBehaviour:
   diagnosisPrefabs:
   - {fileID: 4817484302716086027, guid: 8d3d938f458bce340add1281523d7143, type: 3}
   - {fileID: 649145013596736366, guid: 6adadfec74616b94e83f0dae9b575c78, type: 3}
-  - {fileID: 3378511801205029918, guid: afe2d14d056716b418fb53c981d3737e, type: 3}
+  - {fileID: 8739666946076644206, guid: 45afdf83667a8e44bbbf4b302bc399f9, type: 3}
   - {fileID: 2032604009311961618, guid: a9c452fc1b9834a429b69ef725e3a4cf, type: 3}
