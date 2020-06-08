@@ -12,6 +12,7 @@ public class UpdateDiagnosisNameMesh : MonoBehaviour
     {
         Debug.Log("Entering " + this.GetType());
         Debug.Log(this.name);
+        Debug.Log(diagnosisNameMesh);
         diagnosisNameMesh.text = this.name.Replace("(Clone)","");
         //Destroy(diagnosisNameMesh);
         //diagnosisNameMesh = Instantiate(diagnosisNameMesh);
