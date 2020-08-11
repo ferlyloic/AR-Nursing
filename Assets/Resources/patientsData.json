@@ -1,6 +1,1 @@
-{
-{"id":"p000000001","name":"Patient1"},
-{"id":"p000000002","name":"Patient2"},
-{"id":"p000000003","name":"Patient3"},
-{"id":"p000000004","name":"Patient4"}
-}
+[{"id":"p000000001","name":"Patient1"},{"id":"p000000002","name":"Patient2"},{"id":"p000000003","name":"Patient3"},{"id":"p000000004","name":"Patient4"}]

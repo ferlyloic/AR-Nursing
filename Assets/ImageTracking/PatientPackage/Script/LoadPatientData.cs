@@ -7,10 +7,11 @@ public class LoadPatientData : MonoBehaviour
 {
     public TextMeshPro patientName;
     public GameObject diagnosticsGameObject;
+    private float lastUpdate =-1;
     // Start is called before the first frame update
     void Start()
     {
-
+        lastUpdate = ARNursingGame.currentTime;
         Debug.Log($"Start creating PatientObject :{this.name}");
         patientName.name = this.name;
         diagnosticsGameObject.name = this.name;
@@ -23,6 +24,13 @@ public class LoadPatientData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (lastUpdate!= ARNursingGame.currentTime)
+        {
+            Debug.Log("DIFFERENCE FOUND !!!!!!!!!!!!");
+            lastUpdate = ARNursingGame.currentTime;
+            patientName.text = Patient.get(this.name).name;
+            //Patient.get(this.name);
 
+        }
     }
 }

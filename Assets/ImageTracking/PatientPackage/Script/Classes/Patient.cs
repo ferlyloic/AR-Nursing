@@ -8,7 +8,7 @@ public class Patient
     private static List<Patient> patientsList = new List<Patient>();
     public string id;
     public string name;
-
+    internal static readonly string fileName = "patient.json";
 
     internal Dictionary<string, Diagnostic> getDiagnostics()
     {
@@ -16,19 +16,15 @@ public class Patient
         return diagnostics;
     }
 
-    public Patient(int id, string name)
+    public Patient(string id, string name)
     {
-        this.id = "p00000000" + id;
+        this.id = id;
         this.name = name;
     }
-    //public Patient(int id, string name, Diseases suit)
-    //{
-    //    this.id = "p00000000" + id;
-    //    this.name = name;
-    //}
+
     public static Patient get(string id)
     {
-        Debug.Log("number of patients: " + patientsList.Count );
+        //Debug.Log("number of patients: " + patientsList.Count );
         foreach(Patient p in patientsList)
         {
             if (p.id == id)
@@ -45,42 +41,34 @@ public class Patient
     }
     public static List<Patient> getAll()
     {
-        if(patientsList.Count == 0) readAll();
+        //if(patientsList.Count == 0)
+            readAll();
         return patientsList;
     }
     static void readAll()
     {
-        TextAsset patientsData = (TextAsset)Resources.Load("patientsData");
-        string txt = patientsData.text;
+        patientsList = new List<Patient>();
+        string txt = FileManager.LoadFile(fileName);
         int i = 0;
-        string[] lines = patientsData.text.Split('\n');
+        txt = txt.Replace("[", "");
+        txt = txt.Replace("]", "");
+        txt = txt.Replace("},{", "},\n{");
+        //Debug.Log(txt);
+        string[] lines = txt.Split('\n');
         foreach (string line in lines)
         {
             string l = line;
-            Debug.Log(l);
-            if (i == 0)
-            {
-                l = "";
-            }
-            else if (i < lines.Length - 2)
+            //Debug.Log(l);
+            
+            if (i < lines.Length - 1)
             {
                 l = line.Substring(0, line.Length - 1);
             }
-            else if (i == lines.Length - 2)
-            {
-                l = line;
-            }
-            else if (i >= lines.Length - 1)
-            {
-                Debug.Log(line.Length - 2);
-                l = "";
-
-            }
-            Debug.Log(l);
+            //Debug.Log(l);
             Patient p = JsonUtility.FromJson<Patient>(l);
             if (p != null)
             {
-                Debug.Log(p.name);
+                //Debug.Log(p.name);
                 patientsList.Add(p);
             }
             i++;

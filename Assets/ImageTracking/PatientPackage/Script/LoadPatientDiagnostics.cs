@@ -11,17 +11,17 @@ public class LoadPatientDiagnostics : MonoBehaviour
     {
         Debug.Log("method start in " + this.GetType());
         Debug.Log(this.name);
-        Patient p = Patient.get(this.name);
-        Debug.Log(p);
-        Debug.Log("number of diagnostic: " + p.getDiagnostics().Count);
+        Patient currentPatient = Patient.get(this.name);
+        Debug.Log(currentPatient);
+        Debug.Log("number of diagnostic: " + currentPatient.getDiagnostics().Count);
         Vector3 scalingVector = new Vector3(0.4f, 0.4f, 1f);
-        float yOffSet = 0;
-        float zOffSet = 0.03f;
+        //float yOffSet = 0;
+        //float zOffSet = 0.03f;
        
-        foreach (KeyValuePair<string,Diagnostic> diagnostic in p.getDiagnostics())
+        foreach (KeyValuePair<string,Diagnostic> diagnostic in currentPatient.getDiagnostics())
         {
-            Debug.Log(defaultDiagnosticGameObject);
-            Debug.Log(diagnostic.Value);
+            //Debug.Log(defaultDiagnosticGameObject);
+            //Debug.Log(diagnostic.Value);
             Debug.Log($"diag in Dictionary: {ARNursingGame.diagnosisPrefabsDictionary[diagnostic.Value.name]}");
             defaultDiagnosticGameObject.name = diagnostic.Value.name;
             Debug.Log("destroy default diagnostic");
@@ -33,12 +33,12 @@ public class LoadPatientDiagnostics : MonoBehaviour
             defaultDiagnosticGameObject.transform.position = new Vector3(this.transform.position.x
                 , this.transform.position.y - 0.1f
                 , this.transform.position.z);
-            //GameObject newDiagnosisObject = Instantiate(defaultDiagnosticGameObject, new Vector3(transform.position.x - yOffSet, transform.position.y, transform.position.z - zOffSet), Quaternion.identity);
-            //newDiagnosisObject.name = diagnostic.Value.name;
-            //diagnosisGameObjects.Add(newDiagnosisObject);
+            defaultDiagnosticGameObject.transform.Rotate(this.transform.rotation.x
+                , this.transform.rotation.y 
+                , this.transform.rotation.z);
 
-            yOffSet = yOffSet + 6f;
-            zOffSet = zOffSet + 0f;
+            //yOffSet = yOffSet + 6f;
+            //zOffSet = zOffSet + 0f;
         }
     }
 
